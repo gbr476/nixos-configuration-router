@@ -29,15 +29,6 @@ in
       enable = true;
       virtualHosts = {
         # TODO: Make this smarter
-        "photos.${cfg.publicUrl}" = {
-          extraConfig = ''
-            forward_auth localhost:9999 {
-                uri /api/verify?rd=https://auth.${cfg.publicUrl}/
-                copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
-            }
-            reverse_proxy localhost:2342 { }
-          '';
-        };
         "media.${cfg.publicUrl}" = {
           extraConfig = ''
             forward_auth localhost:9999 {
