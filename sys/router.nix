@@ -82,9 +82,9 @@ in
       type = types.attrsOf (types.attrsOf types.str);
       default = { };
       example = {
-        "00:00:00:00:00:00" = {
+        "Bob's phone" = {
           ip = "192.168.1.1";
-          name = "Bob's phone";
+          mac = "00:00:00:00:00:00";
         };
       };
       description = "Known hosts that should be assigned a static IP";
