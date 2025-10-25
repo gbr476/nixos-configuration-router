@@ -7,8 +7,8 @@
 let
   cfg = config.skogsbrus.router;
   dhcpLease = "infinite";
-  dnsMasqFormatDhcpHost = key: value: "${key},${value.ip}";
-  formatHostName = key: value: "${value.ip} ${value.name}";
+  dnsMasqFormatDhcpHost = key: value: "${value.mac},${value.ip}";
+  formatHostName = key: value: "${value.ip} ${key}";
   dnsMasqFormatDhcpRange = x:  "${x}.10,${x}.245,${dhcpLease}";
   mergeAttrSets = attrsets: builtins.foldl' lib.recursiveUpdate { } attrsets;
 

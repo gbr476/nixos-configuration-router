@@ -27,17 +27,17 @@
       guestSubnet = "10.88.88";
       workSubnet = "10.99.99";
       hosts = {
-        "00:0d:b9:5e:22:91" = {
+        "router" = {
           ip = "10.77.77.1";
-          name = "router";
+          mac = "00:0d:b9:5e:22:91";
         };
-        "9c:6b:00:05:1c:b3" = {
+        "keeper" = {
           ip = "10.77.77.38";
-          name = "keeper";
+          mac = "9c:6b:00:05:1c:b3";
         };
-        "30:9c:23:1b:a5:4d" = {
+        "workstation" = {
           ip = "10.77.77.41";
-          name = "workstation";
+          mac = "30:9c:23:1b:a5:4d";
         };
       };
     };
