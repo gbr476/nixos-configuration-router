@@ -116,10 +116,16 @@ in
       postUp = ''
         # Allow peers from wg0 to connect via router
         ${pkgs.iproute2}/bin/ip route add ${cfg.subnet}.0/24 via ${cfg.serverSubnet}.1
+        # Fastmail SMTP
+        ${pkgs.iproute2}/bin/ip route add 103.168.172.60/32 via 10.77.77.1 dev enp9s0
+        ${pkgs.iproute2}/bin/ip route add 103.168.172.45/32 via 10.77.77.1 dev enp9s0
       '';
 
       preDown = ''
         ${pkgs.iproute2}/bin/ip route delete ${cfg.subnet}.0/24
+        # Fastmail SMTP
+        ${pkgs.iproute2}/bin/ip route delete 103.168.172.60/32
+        ${pkgs.iproute2}/bin/ip route delete 103.168.172.45/32
       '';
 
       privateKeyFile = "/home/johanan/code/os/secrets/wireguard-private.key";
